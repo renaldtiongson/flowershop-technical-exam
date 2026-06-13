@@ -17,4 +17,9 @@ class Product extends Model
         'price',
         'status',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'product_id');
+    }
 }
