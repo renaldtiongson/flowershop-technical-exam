@@ -13,6 +13,8 @@
                 <div class="flex justify-between mb-4">
                     <h2 class="text-xl font-bold">Products</h2>
 
+                    
+
                     <a href="{{ route('products.create') }}"
                     class="bg-blue-500 text-white px-4 py-2 rounded">
                         + Add Product
@@ -97,11 +99,13 @@
                         _token: "{{ csrf_token() }}"
                     },
                     success: function (res) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Product has been deleted.',
-                            'success'
-                        );
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Deleted!',
+                            text: 'Product has been deleted.',
+                            timer: 3000,
+                            showConfirmButton: false
+                        });
 
                         $('#row-' + id).fadeOut(300, function () {
                             $(this).remove();
@@ -110,11 +114,13 @@
 
                     },
                     error: function () {
-                        Swal.fire(
-                            'Failed!',
-                            'An error occurred while deleting the product.',
-                            'error'
-                        );
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Failed!',
+                            text: 'An error occurred while deleting the product.',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
                     }
                 });
                 
@@ -126,6 +132,18 @@
         
     }
 
-
     
 </script>
+
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: '{{ session('success') }}',
+        timer: 2000,
+        showConfirmButton: false
+    });
+</script>
+@endif

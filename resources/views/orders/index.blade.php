@@ -40,7 +40,7 @@
                 </div>
 
                 <!-- Total Orders -->
-                <div class="bg-white p-3 rounded-lg shadow border">
+                <div class="bg-white p-6 rounded-lg shadow border">
                     <div class="text-gray-500 text-sm">Total Orders</div>
                     <div class="text-2xl font-bold">
                         {{ $stats['totalOrders'] }}
@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- Total Revenue -->
-                <div class="bg-white p-3 rounded-lg shadow border">
+                <div class="bg-white p-6 rounded-lg shadow border">
                     <div class="text-gray-500 text-sm">Total Revenue</div>
                     <div class="text-2xl font-bold">
                         ₱{{ number_format($stats['totalAmount'], 2) }}
